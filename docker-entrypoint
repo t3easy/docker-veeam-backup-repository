@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+if ! ls /etc/ssh/ssh_host_* 1> /dev/null 2>&1; then
+    ssh-keygen -A
+fi
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- sshd "$@"
+fi
+
+exec "$@"

@@ -4,5 +4,10 @@ RUN apk add --no-cache \
         perl \
         openssh-server
 
+COPY docker-entrypoint /usr/local/bin/
+
 EXPOSE 22
-CMD [ "/bin/sh", "-c", "ssh-keygen -A && /usr/sbin/sshd -D"]
+
+ENTRYPOINT ["docker-entrypoint"]
+
+CMD [ "/usr/sbin/sshd", "-D", "-e"]
