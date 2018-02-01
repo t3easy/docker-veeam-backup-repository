@@ -10,4 +10,7 @@ if [ "${1#-}" != "$1" ]; then
 	set -- sshd "$@"
 fi
 
+chown root:root /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
+
 exec "$@"

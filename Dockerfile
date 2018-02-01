@@ -4,6 +4,8 @@ RUN apk add --no-cache \
         perl \
         openssh-server
 
+RUN mkdir /root/.ssh && chmod 700 /root/.ssh
+
 COPY docker-entrypoint /usr/local/bin/
 
 EXPOSE 22
