@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM i386/alpine:3.7
 
 RUN apk add --no-cache --virtual .veeam-deps \
         openssh-client \
