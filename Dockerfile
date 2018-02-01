@@ -1,8 +1,7 @@
 FROM i386/alpine:3.7
 
 RUN apk add --no-cache --virtual .veeam-deps \
-        openssh-client \
-        openssh-server \
+        openssh \
         perl
 
 RUN mkdir /root/.ssh && chmod 700 /root/.ssh
